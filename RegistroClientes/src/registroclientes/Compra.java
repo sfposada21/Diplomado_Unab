@@ -1,22 +1,19 @@
-
 /**
  *
  * @author sposada
  */
 public class Compra {
       
-    String cliente;    
+    Cliente cliente;    
     Producto producto;  
     int cantidad;
     int tipoLugar;
     int tipoEnvio;
  
     public Compra(){
-     cliente = "no existe";   
      cantidad = 0;
      tipoLugar = 0;
      tipoEnvio = 0;
-        
     }   
     
     public String getNombreTipoLugar(){  
@@ -51,7 +48,7 @@ public class Compra {
     
     public double getSubTotal(){    
         
-        double subtotal = producto.precio * cantidad;
+        double subtotal = producto.getPrecio() * cantidad;
         
     return subtotal;
     }
@@ -152,17 +149,33 @@ public class Compra {
     return descuento;
     }
     
+    public double getDescuento3(){
+        double descuento  = 0 ;
+        if (cliente instanceof ClientePremium) {
+        descuento = (getTotal() * cliente.descuentoTipo());
+        }
+        return descuento;
+    }
+    
     public double getTotal(){    
         
         double total = getSubTotal() + getValorEnvio() - getDescuento1() - getDescuento2();                 
         
     return total;
     }
+    
+     public double getTotalFinal(){    
+        
+        double total = getTotal() - getDescuento3();                 
+        
+    return total;
+    }
+    
         
     
     public String getImpresion(){        
     String mensaje = String.format("%20s %40s %10s %25s %15.1f %20.1f \n", 
-                cliente, producto.getDescripcion() , cantidad , getNombreEnvio() , getDescuento2()+getDescuento1() , getTotal() );
+                cliente.getDescripcion() , producto.getDescripcion() , cantidad , getNombreEnvio() , getDescuento2()+getDescuento1()+getDescuento3(), getTotalFinal() );
             
            //     cliente, producto.getDescripcion(),cantidad, "getNombreEnvio()" , "getDescuento1()" ,  "getTotal()"  );
         

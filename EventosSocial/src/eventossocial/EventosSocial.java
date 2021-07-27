@@ -26,6 +26,14 @@ public class EventosSocial {
            //servicio4.precioNormal= 200000;
            //servicio4.precioGrande= 150000;           
            //listaServicios[3] = servicio4;
+           
+            ClientePremiun[] misClientesPre = new ClientePremiun[3];
+           
+           // FORMA CON CONSTRUCTOR RECOMENDADA
+           misClientesPre[0]= new ClientePremiun("Juan","3432423432", "juan98", "", 123);               
+           misClientesPre[1] = new ClientePremiun("Maria","2241412414", "maria21", "", 456);           
+           misClientesPre[2] = new ClientePremiun("Jose","43124324", "", "jose63", 789);  
+           
                      
            
            Scanner teclado = new Scanner(System.in) ; 
@@ -36,30 +44,63 @@ public class EventosSocial {
            
            for (int i = 0; i < cantidad; i++) {
                
-               teclado.nextLine();
-               Evento miEvento = new Evento();
+               
+               
                System.out.println(" \n Evento : "+(i+1)+"\n");
                
+               Cliente miCliente = new Cliente();  
+               Evento miEvento = new Evento();
                
-               Cliente miCliente = new Cliente();               
+               System.out.print("Deseas usar un codigo de cliente? 1. si| 2.no : ");
+               int opcionc = teclado.nextInt();
+               
+               if ( opcionc == 1 ) {
+                   do {
+                       int salir = 0;
+                       System.out.print("Escribe el codigo del cliente : ");
+                       int codigo = teclado.nextInt();
+                       
+                       for (ClientePremiun miclientepre : misClientesPre) {
+                           
+                           if (miclientepre.getCodigo() == codigo){
+                               miCliente = miclientepre;
+                               salir = 1; 
+                               break;
+                           }                           
+                       }                       
+                       if (salir == 1) {
+                           break;
+                       }
+                       System.out.println("Cliente no encontrado ");
+                       
+                   } while (true);
+                   
+               } else {     
+                   
+                   teclado.nextLine();
                
                System.out.print("Escribe el nombre : ");
-               miCliente.nombre = teclado.nextLine();
+               String nombre = teclado.nextLine();
+               miCliente.setNombre(nombre);
                
                System.out.print("Escribe el documento : ");
-               miCliente.documento = teclado.nextLine();
-               
+               String documento = teclado.nextLine();
+               miCliente.setDocumento(documento);
+               }
+                              
                miEvento.cliente = miCliente;
                
                System.out.print("Escribe tipo de salon: 1. normal | 2. grande : ");
-               miEvento.salon = teclado.nextInt();
+               int salon = teclado.nextInt();
+               miEvento.setSalon(salon);
                              
                System.out.print("Quieres meseros extras: 1.sI | 2.no : ");
                int mExtra = teclado.nextInt();
                
                if (mExtra==1) {
                    System.out.print("cuantos meseros extras : ");
-                   miEvento.meseros = teclado.nextInt();
+                   int meseros = teclado.nextInt();
+                   miEvento.setMeseros(meseros);
                }
               
                System.out.print("Quieres comida 1.Si | 2.no : ");
@@ -67,17 +108,19 @@ public class EventosSocial {
                
                if (comida==1) {
                    System.out.print("cuantos platos extras : ");
-                   miEvento.platos = teclado.nextInt();
+                   int platos = teclado.nextInt();
+                   miEvento.setPlatos(platos);
                }
                
                System.out.print("Escribe la cantidad de botellas :");
-               miEvento.botellas = teclado.nextInt();
+               int botellas = teclado.nextInt();
+                   miEvento.setBotellas(botellas);
                
                
                for (int j = 0; j < listaServicios.length; j++) {
                    
                    Servicio miServiio = listaServicios[j];
-                   System.out.println((j+1)+"."+miServiio.getDescripcion(miEvento.salon));
+                   System.out.println((j+1)+"."+miServiio.getDescripcion(miEvento.getSalon()));
                           
                }
     
@@ -87,8 +130,8 @@ public class EventosSocial {
                 miEvento.servicio = listaServicios[opcion-1];
                         
                 listaEventos[i] = miEvento;
-           }        
-                      
+           }    
+                       
            String mensaje = String.format("%30s %10s %10s %10s %10s %25s %20s %20s \n", "CLIENTE", "SALON",
                  "MESEROS", "PLATOS", "BOTELLAS", "SERVICIO",
                  "DESCUENTO", "TOTAL");

@@ -12,16 +12,21 @@ public class RegistroClientes {
         // TODO code application logic here
         
        double total = 0;
-       Producto[] listaProductos = new Producto[4];
-           
+       
+       Producto[] listaProductos = new Producto[4];           
            // FORMA CON CONSTRUCTOR RECOMENDADA
            listaProductos[0]= new Producto("Xiaomi Poco X3", 750000);               
            listaProductos[1] = new Producto("Motorola One Fusion", 560000);           
            listaProductos[2] = new Producto("Samsung Galaxy A21s",700000);  
            listaProductos[3] = new Producto("Portatil Asus M413da",2200000); 
            
-          
-                                
+        ClientePremium[] misClientesPre = new ClientePremium[4];           
+        // FORMA CON CONSTRUCTOR RECOMENDADA
+            misClientesPre[0]= new ClientePremium("Juan","juan65", " C0001", 1);               
+            misClientesPre[1] = new ClientePremium("Maria","maria58", " C0002", 2);             
+            misClientesPre[2] = new ClientePremium("Jose","jose36", " C0003", 2);   
+            misClientesPre[3] = new ClientePremium("Diana","diana21", " C0004", 1);   
+
            Scanner teclado = new Scanner(System.in) ; 
            System.out.print("Escribe la cantidad de compras : ");
            int cantidad = teclado.nextInt();
@@ -30,14 +35,46 @@ public class RegistroClientes {
            
            for (int i = 0; i < cantidad; i++) {
                
+               System.out.println(" \n Compra : "+(i+1)+"\n");
+                              
+               Compra miCompra = new Compra();           
+               Cliente miCliente = new Cliente();  
+               
+               
+               System.out.print("Deseas usar un codigo de cliente? 1. si| 2.no : ");
+               int opcionc = teclado.nextInt();
+               
+               if ( opcionc == 1 ) {
+                   
                teclado.nextLine();
                
-               
-               Compra miCompra = new Compra();              
-               Producto miProducto = new Producto();
-               
-               System.out.println("Escribe el nombre : ");
-               miCompra.cliente = teclado.nextLine();
+                   do {
+                       int salir = 0;
+                       System.out.print("\n Escribe el codigo del cliente : ");
+                       String codigo = teclado.nextLine();    
+                       
+                       for (ClientePremium miclientepre : misClientesPre) {     
+                           
+                           if ( (miclientepre.getCodigo()).equalsIgnoreCase(codigo)){
+                               miCliente = miclientepre;
+                               salir = 1; 
+                               break;
+                           }                           
+                       }                       
+                       if (salir == 1) {
+                           break;
+                       }
+                       System.out.println("\n Cliente no encontrado ");
+                   } while (true);                   
+               } else {             
+                
+               teclado.nextLine();                                     
+               System.out.print("\n Escribe el nombre : ");
+               String nombre = teclado.nextLine();
+               miCliente.setNombre(nombre);
+               }              
+                              
+               miCompra.cliente = miCliente;
                
                for (int j = 0; j < listaProductos.length; j++) {
                    
@@ -46,22 +83,22 @@ public class RegistroClientes {
                    
                }
     
-                System.out.println(" Selecione el servicio : ");
+                System.out.print("\n  Selecione el servicio : ");
                 int opcion = teclado.nextInt();
                 
                 miCompra.producto = listaProductos[opcion-1];
                 
-                System.out.println("Escribe la cantidad del producto : ");
+                System.out.print("\n Escribe la cantidad del producto : ");
                 int cantidadP = teclado.nextInt();               
                 miCompra.cantidad = cantidadP;
                                           
               
-               System.out.println("Escribe tipo de lugar : 1. Local | 2. Nacional | 3.Internacional : ");
+               System.out.print("\n Escribe tipo de lugar : 1. Local | 2. Nacional | 3.Internacional : ");
                int tipoLugar = teclado.nextInt();    
                miCompra.tipoLugar = tipoLugar;
                
               
-               System.out.println("Escribe tipo de Envio : 1.Express  | 2.Normal : : ");
+               System.out.print("\n Escribe tipo de Envio : 1.Express  | 2.Normal : : ");
                int tipoEnvio = teclado.nextInt();
                miCompra.tipoEnvio = tipoEnvio;
                
@@ -76,27 +113,16 @@ public class RegistroClientes {
                Compra laCompra = listaCompras[i];
                mensaje += laCompra.getImpresion();
                
-               total += laCompra.getTotal();
+               total += laCompra.getTotalFinal();
            }
            
-           mensaje += String.format("%20s %10.1f \n", 
-                   "TOTAL VENTAS", total);
+           mensaje += String.format("%20s %20.1f \n", 
+                   "TOTAL COMPRAS", total);
            
                               
            System.out.println(mensaje);  
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+                
 }

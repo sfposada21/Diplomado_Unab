@@ -1,14 +1,17 @@
-/**
- *
- * @author sposada
- */
+
 public class Producto {
            
-    String nombre;
-    double precio;               
+    private String nombre;
+    private double precio;               
     
     public String getDescripcion(){        
         return nombre+ " - $ "+ precio;
+    }
+    public String getnombre(){        
+        return nombre;
+    }
+    public double getPrecio(){        
+        return precio;
     }
     
     public Producto(){
@@ -20,5 +23,7 @@ public class Producto {
         this.nombre = nombre;
         this.precio = precio;     
     }    
+    
+    
     
 }

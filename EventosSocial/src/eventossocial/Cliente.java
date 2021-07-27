@@ -13,8 +13,11 @@ public class Cliente {
         return nombre + " ("+ documento +") ";
     }
         
-    public Cliente(String nombre, String documento){
+    public void setNombre(String nombre){
         this.nombre = nombre;
+    }
+    
+       public void setDocumento(String documento){
         this.documento = documento;        
     }
     

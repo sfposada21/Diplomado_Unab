@@ -1,0 +1,1 @@
+[["Xiaomi Poco X3", "Motorola One Fusion", "Samsung Galaxy A21s", "Portatil Asus M413da", "Portatil Asus Vivobook", "Hp Torre Bundle I3-10100"], [750000, 560000, 700000, 2200000, 3200000, 3000000]]

@@ -5,13 +5,33 @@ package eventossocial;
  */
 public class Evento {
     
-    private Cliente cliente;
-    private Servicio servicio;    
+    Cliente cliente;
+    Servicio servicio;    
     private int salon;
     private int meseros;
     private int platos;
     private int botellas;
  
+    public void setSalon( int salon){
+        this.salon = salon;
+    }
+     public void setBotellas(int botellas){
+        this.botellas = botellas;
+    }
+      public void setMeseros(int meseros){
+        this.meseros = meseros;
+    }
+       public void setPlatos(int platos){
+        this.platos = platos;
+    }
+     public int getSalon(){        
+        return salon;        
+    }
+               
+    public Cliente getCliente(){        
+        return cliente;        
+    }
+            
     public String getNombreSalon(){
        String nombre ="";
        if (salon == 1) {
@@ -64,8 +84,25 @@ public class Evento {
         return valor;
      }
      
+     
+     public double getDescuentoPremium(){
+         double total  = 0 ;
+         total = getTotal();
+         if (cliente instanceof ClientePremiun) {
+         total += getTotal()*0.05;
+         }
+         return total;
+     }
+     
+     
      public double getTotal(){
-         return getValor() - getDescuento()+ (botellas*100000)- getValorBotellas();
+         double total = 0;
+         total = getValor() - getDescuento()+ (botellas*100000)- getValorBotellas();
+         if (cliente instanceof ClientePremiun) {
+         total -= getTotal()*0.05;
+         }
+         
+         return total;
      }
      
      
