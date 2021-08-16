@@ -1,4 +1,4 @@
-package registroclientes;
+
 /**
  *
  * @author sposada

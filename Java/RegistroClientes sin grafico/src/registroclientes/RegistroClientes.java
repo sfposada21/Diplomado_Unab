@@ -1,6 +1,4 @@
 
-package registroclientes;
-
 import java.util.Scanner;
 
 /**

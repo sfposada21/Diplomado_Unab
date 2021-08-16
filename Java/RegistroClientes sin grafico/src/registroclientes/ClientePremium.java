@@ -1,5 +1,3 @@
-package registroclientes;
-
 
 public class ClientePremium extends Cliente{
     

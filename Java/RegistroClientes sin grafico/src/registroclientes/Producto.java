@@ -1,6 +1,4 @@
 
-package registroclientes;
-
 public class Producto {
            
     private String nombre;

@@ -1,5 +1,3 @@
-package registroclientes;
-
 /**
  *
  * @author sposada
@@ -17,10 +15,6 @@ public class Compra {
      tipoLugar = 0;
      tipoEnvio = 0;
     }   
-    
-    public String getProducto(){        
-        return producto.getDescripcion();
-    }
     
     public String getNombreTipoLugar(){  
         String tipo = "";
@@ -43,11 +37,10 @@ public class Compra {
         } 
         if (tipoEnvio == 2) {
             forma = "Normal";
-        }         
+        } 
+        
     return forma;
     }
-    
-    
     
     public String getNombreEnvio() {    
     return getNombreTipoLugar() + " - " + getNombreTipoEnvio();
@@ -189,20 +182,5 @@ public class Compra {
     return mensaje;
     }
         
-    public String[] getFila(){        
-    String [] datos = new String[6]; 
-            datos [0] = cliente.getDescripcion();
-            datos [1] = producto.getDescripcion();
-            datos [2] = "" + cantidad; 
-            datos [3] = getNombreEnvio();
-            double descuento = (getDescuento2()+getDescuento1()+getDescuento3());
-            datos [4] = ""+ descuento;
-            datos [5] = "" + getTotalFinal();
-            
-           //     cliente, producto.getDescripcion(),cantidad, "getNombreEnvio()" , "getDescuento1()" ,  "getTotal()"  );
-        
-    return datos;
-    }
-    
         
 }
