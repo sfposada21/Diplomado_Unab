@@ -1,1 +1,3 @@
+commando para crear un .exe
+
 py -3.9 -m PyInstaller --onefile GraficadorInterfaz.py

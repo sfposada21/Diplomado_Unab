@@ -153,7 +153,7 @@ def AbrirArchivo():
     plt.text(0, 48, f'Precio Carbono 40 $/t', bbox ={'facecolor': '#c8c8c8','alpha': 0.7,'edgecolor':'#c8c8c8','pad': 5 })
 
     for i in range(len(VeColors)):
-            plt.text( POSX[i]-promedio/2, POSY[i], f'{i+1}', bbox ={'facecolor': VeColors[i],'alpha': 0.7,'edgecolor':'#c8c8c8', 'boxstyle':'round' })
+            plt.text( POSX[i]-promedio/2, POSY[i], f'{i+1}', bbox ={'facecolor': VeColors[i],'alpha': 0.7,'edgecolor':'#c8c8c8', 'boxstyle':'circle' })
 
     plt.show()
     
