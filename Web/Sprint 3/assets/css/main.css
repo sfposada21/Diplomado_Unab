@@ -1,0 +1,114 @@
+body {
+  width: 100%;
+  background-color: aqua;
+}
+
+.row2{
+--bs-gutter-x: 1.5rem;
+--bs-gutter-y: 0;
+display: flex;
+flex-wrap: wrap;
+}
+
+.logo{
+  height: 90px;
+  width: auto;
+}
+
+.divlogo{
+  width: 30%;
+  padding-left: 30px;
+  
+}
+
+.divbotonoes{
+  align-items: center;
+  justify-content: right;
+}
+.opciones2{
+  align-items: center;
+  justify-content: right;
+  padding-right: 30px;
+ }
+
+
+.botonpr{
+  margin: 5px;
+}
+
+.botonmenu{
+  margin: 5px;
+}
+
+.imagenCarrousel {
+  margin: 15px;
+  height: 170px;
+  width: auto;
+}
+
+.cardimg{
+    margin: 20px;
+}
+
+.navbar1 {
+  grid-area: navbar1;  
+  background-color: #E6F4A2;
+}
+
+.main1 {
+  grid-area: main1;
+  background-color: rgb(205, 230, 209);
+}
+.main2 {
+  background: url("../img/vaca.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(98, 161, 108);
+}
+
+#Campo{
+
+width: -20vh; 
+height: auto;
+float: right;
+position: absolute;
+color: #E6F4A2;
+margin: 20vh 5vh ;
+}
+#Banner_lateral{
+  align-items: center;
+  font-size: 2em;
+  font: #E6F4A2;
+  z-index: initial;
+}
+
+.footer1 {
+  grid-area: footer1;
+  background-color:  #E6F4A2;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  line-height: 3rem;
+  color:  #FE423F;
+}
+.footer-content p {
+  color:  #FE423F;
+  max-width: 500px;
+  margin: 2px auto;
+  line-height: 15px;
+  font-size: 14px;
+}
+

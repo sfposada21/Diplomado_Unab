@@ -1,0 +1,32 @@
+﻿Vota con una ⭐, puedes votar varias veces pero solo una vez por proyecto
+
+1 - 
+2 - 
+3 - 
+4 - 
+5 - 
+6 - 
+7 - 
+8 -
+9 - ⭐
+<<<<<<< HEAD:proyectos.txt
+10 - **
+11 - ⭐
+=======
+10 - *&
+11 - ⭐&
+>>>>>>> af8dec99e0066c4dc30ca23dcb3be8b1bd629489:Sprint 1/proyectos.txt
+12 - ⭐
+
+Pamela - 1 - Página para rankear hojas de vida y mostrar mejores opciones del sector.
+Pamela - 2 - Aplicación de bienestar trackeador de hábitos con recordatorios.
+Pamela - 3 - Domicilios con duracion de compra y notificaciones.
+Edwin - 4 - Sistema de control de vacunas para un departamento.
+Edwin - 5 - Página web donde se puedan registrar programadores y las empresas puedan buscar para contratarlos.
+Edwin - 6 - Menú de un restaurante con lectura de código QR.
+Edwin - 7 - Sistema de votación para elegir al personero de algún colegio.
+Oscar - 8 - Proceso de selección de empresa "computrabajo con tracking del proceso, fechas y retroalimentación".
+Oscar - 9 - Perfil de networking social de empresas para que las pymes se den a conocer entre las grandes.
+Felix - 10 - pagina de comercio para productos de campo.
+Felix - 11 - pagina de comparacion de precos de almacenes en Colombia.
+Felix - 12 - pagina para alquiler de servicios.|
